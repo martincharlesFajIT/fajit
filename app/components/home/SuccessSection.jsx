@@ -24,20 +24,20 @@ const SuccessSection = () => {
   // Simple cursor trail effect
   useEffect(() => {
     let trailId = 0;
-    
+
     const handleMouseMove = (e) => {
       const section = e.currentTarget;
       const rect = section.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const newTrail = {
         id: trailId++,
         x: x,
         y: y,
         timestamp: Date.now()
       };
-      
+
       setCursorTrails(prev => [...prev, newTrail].slice(-30)); // Keep only last 30 trails for bigger effect
     };
 
@@ -67,17 +67,17 @@ const SuccessSection = () => {
         <svg width="100%" height="100%" style={{ position: 'absolute' }}>
           <defs>
             <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M10 10 L90 10 M50 10 L50 90 M10 50 L90 50 M10 90 L90 90" 
-                    stroke="#8b5cf6" strokeWidth="0.5" fill="none" opacity="0.3"/>
-              <circle cx="10" cy="10" r="2" fill="#8b5cf6" opacity="0.6"/>
-              <circle cx="50" cy="10" r="2" fill="#8b5cf6" opacity="0.6"/>
-              <circle cx="90" cy="10" r="2" fill="#8b5cf6" opacity="0.6"/>
-              <circle cx="10" cy="50" r="2" fill="#8b5cf6" opacity="0.6"/>
-              <circle cx="50" cy="50" r="3" fill="#06b6d4" opacity="0.8"/>
-              <circle cx="90" cy="50" r="2" fill="#8b5cf6" opacity="0.6"/>
-              <circle cx="10" cy="90" r="2" fill="#8b5cf6" opacity="0.6"/>
-              <circle cx="50" cy="90" r="2" fill="#8b5cf6" opacity="0.6"/>
-              <circle cx="90" cy="90" r="2" fill="#8b5cf6" opacity="0.6"/>
+              <path d="M10 10 L90 10 M50 10 L50 90 M10 50 L90 50 M10 90 L90 90"
+                stroke="#8b5cf6" strokeWidth="0.5" fill="none" opacity="0.3" />
+              <circle cx="10" cy="10" r="2" fill="#8b5cf6" opacity="0.6" />
+              <circle cx="50" cy="10" r="2" fill="#8b5cf6" opacity="0.6" />
+              <circle cx="90" cy="10" r="2" fill="#8b5cf6" opacity="0.6" />
+              <circle cx="10" cy="50" r="2" fill="#8b5cf6" opacity="0.6" />
+              <circle cx="50" cy="50" r="3" fill="#06b6d4" opacity="0.8" />
+              <circle cx="90" cy="50" r="2" fill="#8b5cf6" opacity="0.6" />
+              <circle cx="10" cy="90" r="2" fill="#8b5cf6" opacity="0.6" />
+              <circle cx="50" cy="90" r="2" fill="#8b5cf6" opacity="0.6" />
+              <circle cx="90" cy="90" r="2" fill="#8b5cf6" opacity="0.6" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#circuit)" />
@@ -108,9 +108,9 @@ const SuccessSection = () => {
 
       {/* Animated Gradient Orbs */}
       <div className="gradient-orb orb-1"></div>
-      
+
       <div className="gradient-orb orb-2" style={{
-        
+
       }}></div>
 
       {/* Cursor Trail Elements */}
@@ -165,11 +165,11 @@ const SuccessSection = () => {
       </div>
 
       <div className="success-grid-pattern"></div>
-      
+
       <div className="success-particles">
         {[...Array(20)].map((_, i) => (
-          <div 
-            key={i} 
+          <div
+            key={i}
             className="success-particle"
             style={{
               left: `${Math.random() * 100}%`,
@@ -182,17 +182,10 @@ const SuccessSection = () => {
 
       <div className="success-container" style={{ position: 'relative', zIndex: 10 }}>
         <div className={`content-left ${isVisible ? 'animate-in' : ''}`}>
-          <div className="success-badge" style={{
-            background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)',
-            border: '1px solid rgba(139, 92, 246, 0.5)',
-            backdropFilter: 'blur(10px)'
-          }}>
-            <div className="purple-dot" style={{
-              animation: 'pulse 2s infinite',
-              boxShadow: '0 0 20px rgba(139, 92, 246, 0.8)'
-            }}></div>
-            <span>Catch The Success</span>
-          </div>
+            <div className="what-we-do-badge text-white">
+              <span className="purple-dot"></span>
+              Catch The Success
+            </div>
           
           <h1 className="main-heading" style={{
             background: 'linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #06b6d4 100%)',
@@ -236,12 +229,12 @@ const SuccessSection = () => {
                 <div className="planet-surface"></div>
               </div>
             </div>
-            
+
             {/* Tech Floating Elements */}
             <div className="floating-elements">
               <div className="element element-1" style={{ color: '#8b5cf6', fontSize: '28px' }}>{'< />'}</div>
               <div className="element element-2" style={{ color: '#06b6d4', fontSize: '24px' }}>AI</div>
-              <div className="element element-3" style={{ color: '#10b981', fontSize: '30px' }}>⚡</div>
+              <div className="element element-3" style={{ color: '#10b981', fontSize: '30px' }}>Js</div>
               <div className="element element-4" style={{ color: '#f59e0b', fontSize: '26px' }}>{'{ }'}</div>
             </div>
           </div>
@@ -268,7 +261,7 @@ const SuccessSection = () => {
             }}>
               <span>Start A Project</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="m9 18 6-6-6-6"/>
+                <path d="m9 18 6-6-6-6" />
               </svg>
             </button>
           </div>

@@ -8,6 +8,7 @@ import StickyocialBar from './components/home/StickyocialBar'
 import Footer from './Footer'
 import FAQSection from './components/home/FAQSection'
 import SuccessSection from './components/home/SuccessSection'
+import ServicesSection from './components/home/ServicesSection'
 
 
 
@@ -198,6 +199,9 @@ const HeroSection = () => {
         <Brandstack />
        
       </section>
+      <section>
+        <ServicesSection />
+      </section>
       
       {/* Web Development Process section 3 */}
       <section>
@@ -205,12 +209,16 @@ const HeroSection = () => {
       </section>
 
       <section>
-        <FAQSection />
+        <SuccessSection />
       </section>
 
       <section>
-        <SuccessSection />
+        <FAQSection />
       </section>
+
+      
+
+      
 
       <section><Footer /></section>
       
