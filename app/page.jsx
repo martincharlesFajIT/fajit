@@ -50,7 +50,7 @@ const HeroSection = () => {
           playsInline
           className="background-video"
         >
-          <source src="/home-hero.mp4" type="video/mp4" />
+          <source src="/home-section.mp4" type="video/mp4" />
         </video>
       </div>
 
