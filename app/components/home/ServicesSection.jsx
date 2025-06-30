@@ -297,19 +297,21 @@ const ServicesSection = () => {
         {/* Main Services Container */}
         <div style={{
           display: 'flex',
-          gap: '40px',
-          minHeight: '500px'
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: isMobile ? '20px' : '40px',
+          minHeight: isMobile ? 'auto' : '500px'
         }}>
-          {/* Left Panel - Categories (Vertical) */}
+          {/* Left Panel - Categories (Vertical on Desktop, Horizontal on Mobile) */}
           <div style={{
-            width: '220px',
+            width: isMobile ? '100%' : '220px',
             flexShrink: 0,
-            marginLeft: '20px'
+            marginLeft: isMobile ? '0' : '20px'
           }}>
             <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '15px'
+              display: 'grid',
+              gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : '1fr',
+              gap: isMobile ? '10px' : '15px',
+              marginBottom: isMobile ? '20px' : '0'
             }}>
               {Object.entries(servicesData).map(([key, category]) => (
                 <button
@@ -321,8 +323,8 @@ const ServicesSection = () => {
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '15px',
-                    padding: '20px',
+                    gap: isMobile ? '10px' : '15px',
+                    padding: isMobile ? '15px' : '20px',
                     background: activeCategory === key 
                       ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)'
                       : 'rgba(255, 255, 255, 0.02)',
@@ -331,14 +333,16 @@ const ServicesSection = () => {
                       : '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '15px',
                     color: '#ffffff',
-                    fontSize: '18px',
+                    fontSize: isMobile ? '14px' : '18px',
                     fontWeight: '600',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',
                     textAlign: 'left',
-                    width: '100%',
+                    width: isMobile ? 'auto' : '100%',
+                    minWidth: isMobile ? 'max-content' : 'auto',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    whiteSpace: isMobile ? 'nowrap' : 'normal'
                   }}
                   onMouseEnter={(e) => {
                     if (activeCategory !== key) {
@@ -353,9 +357,9 @@ const ServicesSection = () => {
                     }
                   }}
                 >
-                  <span style={{ fontSize: '28px' }}>{category.icon}</span>
+                  <span style={{ fontSize: isMobile ? '20px' : '28px' }}>{category.icon}</span>
                   <span>{category.title}</span>
-                  {activeCategory === key && (
+                  {activeCategory === key && !isMobile && (
                     <div style={{
                       position: 'absolute',
                       left: 0,
@@ -377,11 +381,11 @@ const ServicesSection = () => {
             background: 'rgba(255, 255, 255, 0.02)',
             border: '1px solid rgba(139, 92, 246, 0.2)',
             borderRadius: '20px',
-            padding: '40px',
+            padding: isMobile ? '20px' : '40px',
             backdropFilter: 'blur(10px)',
             position: 'relative',
             overflow: 'hidden',
-            marginRight: '20px'
+            marginRight: isMobile ? '0' : '20px'
           }}>
             {/* Background Gradient */}
             <div style={{
@@ -398,21 +402,22 @@ const ServicesSection = () => {
               // Services Grid
               <div style={{ position: 'relative', zIndex: 1 }}>
                 <h3 style={{
-                  fontSize: '28px',
+                  fontSize: isMobile ? '22px' : '28px',
                   fontWeight: '700',
-                  marginBottom: '30px',
+                  marginBottom: isMobile ? '20px' : '30px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '15px'
+                  gap: '15px',
+                  flexWrap: 'wrap'
                 }}>
-                  <span style={{ fontSize: '32px' }}>{servicesData[activeCategory].icon}</span>
+                  <span style={{ fontSize: isMobile ? '24px' : '32px' }}>{servicesData[activeCategory].icon}</span>
                   {servicesData[activeCategory].title} Services
                 </h3>
                 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '20px'
+                  gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
+                  gap: isMobile ? '15px' : '20px'
                 }}>
                   {servicesData[activeCategory].services.map((service, index) => (
                     <div
@@ -445,7 +450,7 @@ const ServicesSection = () => {
                       }}
                     >
                       <h4 style={{
-                        fontSize: '20px',
+                        fontSize: isMobile ? '18px' : '20px',
                         fontWeight: '600',
                         color: '#ffffff'
                       }}>
@@ -514,7 +519,7 @@ const ServicesSection = () => {
                 </button>
 
                 <h3 style={{
-                  fontSize: '36px',
+                  fontSize: isMobile ? '28px' : '36px',
                   fontWeight: '700',
                   marginBottom: '20px',
                   background: 'linear-gradient(135deg, #ffffff 0%, #8b5cf6 100%)',
@@ -526,26 +531,26 @@ const ServicesSection = () => {
                 </h3>
 
                 <p style={{
-                  fontSize: '18px',
+                  fontSize: isMobile ? '16px' : '18px',
                   lineHeight: '1.8',
                   color: '#d1d5db',
-                  marginBottom: '40px'
+                  marginBottom: isMobile ? '30px' : '40px'
                 }}>
                   {selectedService.details.description}
                 </p>
 
                 <div style={{ marginBottom: '40px' }}>
                   <h4 style={{
-                    fontSize: '22px',
+                    fontSize: isMobile ? '20px' : '22px',
                     fontWeight: '600',
-                    marginBottom: '25px',
+                    marginBottom: isMobile ? '20px' : '25px',
                     color: '#8b5cf6'
                   }}>
                     Technologies & Frameworks
                   </h4>
                   <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                    gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(200px, 1fr))',
                     gap: '15px'
                   }}>
                     {selectedService.details.technologies.map((tech, i) => (
@@ -555,12 +560,13 @@ const ServicesSection = () => {
                           background: 'rgba(139, 92, 246, 0.1)',
                           border: '1px solid rgba(139, 92, 246, 0.3)',
                           borderRadius: '12px',
-                          padding: '15px 20px',
+                          padding: isMobile ? '12px 16px' : '15px 20px',
                           transition: 'all 0.3s ease',
                           cursor: 'default',
                           animation: `fadeInUp 0.5s ease ${i * 0.1}s both`,
                           textAlign: 'center',
-                          fontWeight: '500'
+                          fontWeight: '500',
+                          fontSize: isMobile ? '14px' : '16px'
                         }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
@@ -583,13 +589,14 @@ const ServicesSection = () => {
                   background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
                   border: 'none',
                   borderRadius: '12px',
-                  padding: '18px 40px',
+                  padding: isMobile ? '15px 30px' : '18px 40px',
                   color: '#ffffff',
-                  fontSize: '18px',
+                  fontSize: isMobile ? '16px' : '18px',
                   fontWeight: '600',
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
-                  boxShadow: '0 5px 20px rgba(139, 92, 246, 0.4)'
+                  boxShadow: '0 5px 20px rgba(139, 92, 246, 0.4)',
+                  width: isMobile ? '100%' : 'auto'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-2px)';

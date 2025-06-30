@@ -9,6 +9,8 @@ import Footer from './Footer'
 import FAQSection from './components/home/FAQSection'
 import SuccessSection from './components/home/SuccessSection'
 import ServicesSection from './components/home/ServicesSection'
+import CustomerReviews from './components/home/CustomerReviews'
+import PortfolioSection from './components/home/PortfolioSection'
 
 
 
@@ -208,6 +210,14 @@ const HeroSection = () => {
         <WebDevelopmentProcess />
       </section>
 
+       <section>
+        <CustomerReviews />
+      </section>
+
+      <section>
+        <PortfolioSection />
+      </section>
+
       <section>
         <SuccessSection />
       </section>
@@ -215,6 +225,11 @@ const HeroSection = () => {
       <section>
         <FAQSection />
       </section>
+
+      
+     
+
+     
 
       
 

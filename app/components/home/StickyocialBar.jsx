@@ -2,11 +2,26 @@
 
 import React, { useState, useEffect } from 'react';
 
-const StickyocialBar = () => {
+const StickySocialBar = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const handleScroll = () => {
+      // Don't show on mobile
+      if (isMobile) {
+        setIsVisible(false);
+        return;
+      }
+
       // Look for the brands section specifically
       const brandsSection = document.querySelector('.brands-section');
       
@@ -27,24 +42,18 @@ const StickyocialBar = () => {
     setTimeout(handleScroll, 100);
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [isMobile]);
 
-  // Don't render if not visible
-  if (!isVisible) return null;
+  // Don't render if not visible or on mobile
+  if (!isVisible || isMobile) return null;
+
   return (
     <div className="social-sidebar">
       <div className="social-icons-container">
-        {/* Behance */}
-        <a 
-          href="#" 
-          className="social-icon behance"
-          aria-label="Behance"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M6.938 4.503c.702 0 1.34.06 1.92.188.577.13 1.07.33 1.485.61.41.28.733.65.96 1.12.225.47.34 1.05.34 1.73 0 .74-.17 1.36-.507 1.86-.338.5-.837.9-1.498 1.19.906.26 1.576.72 2.022 1.37.448.66.67 1.43.67 2.34 0 .75-.13 1.39-.41 1.93-.28.55-.67 1-1.16 1.35-.48.348-1.05.6-1.67.76-.61.155-1.25.23-1.92.23H0V4.51h6.938v-.007zM3.495 8.915h2.91c.518 0 .954-.07 1.31-.26.353-.18.53-.49.53-.95 0-.26-.04-.48-.13-.65-.09-.17-.22-.31-.39-.42-.17-.11-.37-.19-.61-.24-.24-.05-.5-.07-.78-.07H3.495v2.59zm0 4.455h3.4c.26 0 .52-.02.78-.08.26-.06.49-.14.69-.26.2-.12.36-.28.48-.49.12-.21.18-.47.18-.78 0-.53-.17-.89-.53-1.1-.36-.22-.86-.33-1.5-.33H3.495v3.04zm15.375-3.855h-5.25v-1.54h5.25v1.54z"/>
-          </svg>
-        </a>
 
         {/* Instagram */}
         <a 
@@ -105,4 +114,4 @@ const StickyocialBar = () => {
   );
 };
 
-export default StickyocialBar;
+export default StickySocialBar;
