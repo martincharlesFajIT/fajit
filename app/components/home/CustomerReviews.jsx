@@ -119,9 +119,7 @@ const CustomerReviews = () => {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Background Elements */}
       <div className="bg-elements">
-        {/* Animated Grid */}
         <div style={{
           position: 'absolute',
           top: 0,
@@ -136,7 +134,6 @@ const CustomerReviews = () => {
           animation: 'gridMove 20s linear infinite'
         }}></div>
 
-        {/* Gradient Orbs */}
         <div style={{
           position: 'absolute',
           width: '500px',
@@ -167,7 +164,6 @@ const CustomerReviews = () => {
         position: 'relative',
         zIndex: 10
       }}>
-        {/* Section Header */}
         <div className={`section-header ${isVisible ? 'animate-in' : ''}`} style={{
           textAlign: 'center',
           marginBottom: isMobile ? '40px' : '60px',
@@ -217,7 +213,6 @@ const CustomerReviews = () => {
           </p>
         </div>
 
-        {/* Stats Bar */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
@@ -267,12 +262,11 @@ const CustomerReviews = () => {
           ))}
         </div>
 
-        {/* Reviews Carousel */}
         <div style={{
           position: 'relative',
           marginBottom: '40px'
         }}>
-          {/* Main Review Display */}
+
           <div style={{
             background: 'rgba(255, 255, 255, 0.02)',
             border: '1px solid rgba(139, 92, 246, 0.2)',
@@ -361,7 +355,7 @@ const CustomerReviews = () => {
                     </p>
                   </div>
 
-                  {/* Review Content */}
+
                   <div style={{ flex: 1 }}>
                     {/* Rating Stars */}
                     <div style={{ marginBottom: '20px' }}>
@@ -370,7 +364,7 @@ const CustomerReviews = () => {
                       ))}
                     </div>
 
-                    {/* Review Text */}
+    
                     <p style={{
                       fontSize: isMobile ? '16px' : '18px',
                       lineHeight: '1.8',
@@ -381,7 +375,7 @@ const CustomerReviews = () => {
                       "{review.review}"
                     </p>
 
-                    {/* Project Info */}
+   
                     <div style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -403,7 +397,7 @@ const CustomerReviews = () => {
                       </span>
                     </div>
 
-                    {/* Tech Tags */}
+            
                     <div style={{
                       display: 'flex',
                       gap: '10px',
@@ -431,7 +425,7 @@ const CustomerReviews = () => {
             ))}
           </div>
 
-          {/* Navigation Dots */}
+
           <div style={{
             display: 'flex',
             justifyContent: 'center',
@@ -458,7 +452,7 @@ const CustomerReviews = () => {
           </div>
         </div>
 
-        {/* Company Logos */}
+
         <div style={{
           textAlign: 'center',
           opacity: isVisible ? 1 : 0,

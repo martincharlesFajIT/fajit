@@ -1,11 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { GiArtificialHive } from "react-icons/gi";
-import { GrProjects } from "react-icons/gr";
-import { GrCloudSoftware } from "react-icons/gr";
-import { CgWebsite } from "react-icons/cg";
-import { MdOutlineSendToMobile } from "react-icons/md";
-import { TfiShoppingCart } from "react-icons/tfi";
+
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -41,12 +36,11 @@ const PortfolioSection = () => {
   }, []);
 
   const categories = [
-    { id: 'all', name: 'All Projects', icon: <GrProjects /> },
-    { id: 'web', name: 'Web Apps', icon: <CgWebsite /> },
-    { id: 'mobile', name: 'Mobile Apps', icon: <MdOutlineSendToMobile /> },
-    { id: 'ecommerce', name: 'E-commerce', icon: <TfiShoppingCart /> },
-    { id: 'saas', name: 'SaaS', icon: <GrCloudSoftware /> },
-    { id: 'ai', name: 'AI/ML', icon: <GiArtificialHive /> }
+    { id: 'all', name: 'All Projects', icon: '🚀' },
+    { id: 'web', name: 'Web Apps', icon: '🌐' },
+    { id: 'mobile', name: 'Mobile Apps', icon: '📱' },
+    { id: 'ecommerce', name: 'E-commerce', icon: '🛒' },
+    { id: 'ai', name: 'AI/ML', icon: '🤖' }
   ];
 
   const projects = [
@@ -55,7 +49,7 @@ const PortfolioSection = () => {
       title: "FinTech Dashboard Pro",
       category: "web",
       description: "Real-time financial analytics dashboard with AI-powered insights",
-      image: "",
+      image: "💹",
       color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       technologies: ["React", "TypeScript", "D3.js", "Node.js", "MongoDB"],
       features: ["Real-time Data", "AI Analytics", "Multi-currency", "Dark Mode"],
@@ -66,7 +60,7 @@ const PortfolioSection = () => {
       title: "HealthTrack Mobile",
       category: "mobile",
       description: "Cross-platform health monitoring app with wearable integration",
-      image: "",
+      image: "🏥",
       color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
       technologies: ["React Native", "Firebase", "HealthKit", "TensorFlow Lite"],
       features: ["Wearable Sync", "Health AI", "Telemedicine", "Offline Mode"],
@@ -77,7 +71,7 @@ const PortfolioSection = () => {
       title: "ShopHub Marketplace",
       category: "ecommerce",
       description: "Multi-vendor e-commerce platform with AR product preview",
-      image: "",
+      image: "🛍️",
       color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
       technologies: ["Next.js", "Stripe", "AWS", "PostgreSQL", "Redis"],
       features: ["AR Preview", "Multi-vendor", "AI Recommendations", "Global Shipping"],
@@ -85,21 +79,22 @@ const PortfolioSection = () => {
     },
     {
       id: 4,
-      title: "CloudSync SaaS",
-      category: "saas",
+      title: "CloudSync Storage",
+      category: "web",
       description: "Enterprise cloud storage solution with advanced collaboration",
-      image: "",
+      image: "☁️",
       color: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
       technologies: ["Vue.js", "Go", "Kubernetes", "gRPC", "S3"],
       features: ["End-to-end Encryption", "Real-time Sync", "Team Collaboration", "API Access"],
-      metrics: { storage: "10PB+", enterprises: "200+", uptime: "99.99%" }
+      metrics: { storage: "10PB+", enterprises: "200+", uptime: "99.99%" },
+      link: "/projects/cloudsync"
     },
     {
       id: 5,
       title: "SmartCity IoT Platform",
       category: "web",
       description: "IoT management platform for smart city infrastructure",
-      image: "",
+      image: "🏙️",
       color: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
       technologies: ["Angular", "Python", "MQTT", "TimescaleDB", "Docker"],
       features: ["Real-time Monitoring", "Predictive Maintenance", "Energy Optimization", "Citizen App"],
@@ -110,7 +105,7 @@ const PortfolioSection = () => {
       title: "AI Content Creator",
       category: "ai",
       description: "AI-powered content generation platform for marketing teams",
-      image: "",
+      image: "🧠",
       color: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
       technologies: ["Python", "GPT-4", "FastAPI", "React", "Elasticsearch"],
       features: ["Multi-language", "Brand Voice AI", "SEO Optimization", "Plagiarism Check"],
@@ -121,7 +116,7 @@ const PortfolioSection = () => {
       title: "CryptoWallet Pro",
       category: "mobile",
       description: "Secure cryptocurrency wallet with DeFi integration",
-      image: "",
+      image: "🔐",
       color: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
       technologies: ["Flutter", "Web3.js", "Solidity", "Node.js", "PostgreSQL"],
       features: ["Multi-chain", "DeFi Integration", "Hardware Wallet", "Staking"],
@@ -190,7 +185,7 @@ const PortfolioSection = () => {
       </div>
 
       <div className="portfolio-container" style={{
-        maxWidth: '1400px',
+        maxWidth: '1200px',
         margin: '0 auto',
         padding: isMobile ? '0 20px' : '0 60px',
         position: 'relative',
@@ -291,9 +286,10 @@ const PortfolioSection = () => {
         {/* Projects Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '30px',
-          marginBottom: '60px'
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gap: '25px',
+          marginBottom: '60px',
+          padding: isMobile ? '0' : '0 20px'
         }}>
           {filteredProjects.map((project, index) => (
             <div

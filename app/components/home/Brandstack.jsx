@@ -44,20 +44,16 @@ const Brandstack = () => {
 
   return (
     <section className="brands-section">
-      {/* What We Do Badge */}
       <div className="what-we-do-badge">
         <span className="purple-dot"></span>
         What We Do
       </div>
-
-      {/* Main Heading */}
       <div className="main-heading">
         <h1>
           Our Tech Stack<br />
         </h1>
       </div>
 
-      {/* Earth Visualization Container */}
       <div className="earth-container">
         <div className="earth-sphere">
           <div className="earth-glow"></div>
@@ -74,7 +70,6 @@ const Brandstack = () => {
         </div>
       </div>
 
-      {/* Tech Stack Logos */}
       {techStack.map((row, rowIndex) => (
         <div key={rowIndex} className="brand-logos">
           {row.map((tech, techIndex) => (
@@ -86,7 +81,6 @@ const Brandstack = () => {
         </div>
       ))}
 
-      {/* Global Presence */}
       <div className="global-presence">
         <span className="presence-label">Our Global Presence</span>
         <div className="presence-tags">

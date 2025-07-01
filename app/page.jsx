@@ -11,6 +11,7 @@ import SuccessSection from './components/home/SuccessSection'
 import ServicesSection from './components/home/ServicesSection'
 import CustomerReviews from './components/home/CustomerReviews'
 import PortfolioSection from './components/home/PortfolioSection'
+import HireDeveloperSection from './components/home/HireDeveloperSection'
 
 
 
@@ -57,7 +58,7 @@ const HeroSection = () => {
         </video>
       </div>
 
-      {/* Bootstrap Navigation */}
+      {/* Navigation */}
       <nav className={`navbar navbar-expand-lg navbar-dark fixed-top custom-navbar mt-3 p-3 ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container-fluid">
           {/* Brand/Logo */}
@@ -65,7 +66,7 @@ const HeroSection = () => {
             FAJ
           </a>
 
-          {/* Bootstrap Mobile Toggler */}
+          {/* Mobile Toggler */}
           <button
             className="custom-toggler d-lg-none"
             type="button"
@@ -214,12 +215,16 @@ const HeroSection = () => {
         <CustomerReviews />
       </section>
 
-      <section>
+      {/* <section>
         <PortfolioSection />
-      </section>
+      </section> */}
 
       <section>
         <SuccessSection />
+      </section>
+
+      <section>
+        <HireDeveloperSection />
       </section>
 
       <section>
@@ -227,9 +232,6 @@ const HeroSection = () => {
       </section>
 
       
-     
-
-     
 
       
 
