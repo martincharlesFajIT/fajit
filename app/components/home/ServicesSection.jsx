@@ -70,22 +70,6 @@ const ServicesSection = () => {
             description: "Design intuitive interfaces that delight users and drive engagement."
           }
         },
-        { 
-          name: "ERP Software", 
-          id: "erp",
-          details: {
-            technologies: ["SAP", "Oracle", "Microsoft Dynamics", "Custom ERP Solutions"],
-            description: "Streamline your business operations with integrated enterprise solutions."
-          }
-        },
-        { 
-          name: "IT Resource Outsourcing", 
-          id: "outsourcing",
-          details: {
-            technologies: ["Dedicated Teams", "Staff Augmentation", "Project-Based Outsourcing"],
-            description: "Scale your team with skilled professionals for your technology needs."
-          }
-        }
       ]
     },
     marketing: {
@@ -142,22 +126,6 @@ const ServicesSection = () => {
           details: {
             technologies: ["Smart Contracts", "DeFi Solutions", "NFT Platforms", "Cryptocurrency Development"],
             description: "Build secure, decentralized applications with blockchain technology."
-          }
-        },
-        { 
-          name: "IoT Solutions", 
-          id: "iot",
-          details: {
-            technologies: ["Smart Home", "Industrial IoT", "Wearables", "Connected Vehicles", "IoT Security"],
-            description: "Connect and control devices intelligently with Internet of Things solutions."
-          }
-        },
-        { 
-          name: "AR/VR Development", 
-          id: "arvr",
-          details: {
-            technologies: ["Augmented Reality", "Virtual Reality", "Mixed Reality", "3D Modeling", "Interactive Experiences"],
-            description: "Create immersive experiences that blur the line between digital and physical worlds."
           }
         }
       ]
@@ -462,7 +430,7 @@ const ServicesSection = () => {
                       <button
                         onClick={() => setSelectedService(service)}
                         style={{
-                          background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
+                          background: 'linear-gradient(135deg,rgb(100, 47, 224) 0%,rgb(2, 145, 170) 100%)',
                           border: 'none',
                           borderRadius: '25px',
                           padding: '10px 25px',

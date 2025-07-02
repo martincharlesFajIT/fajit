@@ -215,19 +215,13 @@ const HeroSection = () => {
         <CustomerReviews />
       </section>
 
-      {/* <section>
+      <section>
         <PortfolioSection />
-      </section> */}
+      </section>
 
-      
       <section>
         <HireDeveloperSection />
       </section>
-      <section>
-        <SuccessSection />
-      </section>
-
-
 
       <section>
         <FAQSection />

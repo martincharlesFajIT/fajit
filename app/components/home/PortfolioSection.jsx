@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 const PortfolioSection = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('web');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -36,11 +36,10 @@ const PortfolioSection = () => {
   }, []);
 
   const categories = [
-    { id: 'all', name: 'All Projects', icon: '🚀' },
-    { id: 'web', name: 'Web Apps', icon: '🌐' },
-    { id: 'mobile', name: 'Mobile Apps', icon: '📱' },
-    { id: 'ecommerce', name: 'E-commerce', icon: '🛒' },
-    { id: 'ai', name: 'AI/ML', icon: '🤖' }
+    { id: 'web', name: 'Web Apps' },
+    { id: 'mobile', name: 'Mobile Apps' },
+    { id: 'ecommerce', name: 'E-commerce' },
+    { id: 'ai', name: 'AI/ML' }
   ];
 
   const projects = [
@@ -49,41 +48,37 @@ const PortfolioSection = () => {
       title: "FinTech Dashboard Pro",
       category: "web",
       description: "Real-time financial analytics dashboard with AI-powered insights",
-      image: "💹",
-      color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       technologies: ["React", "TypeScript", "D3.js", "Node.js", "MongoDB"],
       features: ["Real-time Data", "AI Analytics", "Multi-currency", "Dark Mode"],
-      metrics: { users: "50K+", performance: "99.9%", rating: "4.9" }
+      metrics: { users: "50K+", performance: "99.9%", rating: "4.9" },
+      link: "/projects/fintech-dashboard"
     },
     {
       id: 2,
       title: "HealthTrack Mobile",
       category: "mobile",
       description: "Cross-platform health monitoring app with wearable integration",
-      image: "🏥",
-      color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
       technologies: ["React Native", "Firebase", "HealthKit", "TensorFlow Lite"],
       features: ["Wearable Sync", "Health AI", "Telemedicine", "Offline Mode"],
-      metrics: { downloads: "100K+", activeUsers: "75K", rating: "4.8" }
+      metrics: { downloads: "100K+", activeUsers: "75K", rating: "4.8" },
+      link: "/projects/healthtrack"
     },
     {
       id: 3,
       title: "ShopHub Marketplace",
+      image: "/images/fingtap.jpeg",
       category: "ecommerce",
       description: "Multi-vendor e-commerce platform with AR product preview",
-      image: "🛍️",
-      color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
       technologies: ["Next.js", "Stripe", "AWS", "PostgreSQL", "Redis"],
       features: ["AR Preview", "Multi-vendor", "AI Recommendations", "Global Shipping"],
-      metrics: { gmv: "$5M+", vendors: "500+", products: "50K+" }
+      metrics: { gmv: "$5M+", vendors: "500+", products: "50K+" },
+      link: "/projects/shophub"
     },
     {
       id: 4,
       title: "CloudSync Storage",
       category: "web",
       description: "Enterprise cloud storage solution with advanced collaboration",
-      image: "☁️",
-      color: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
       technologies: ["Vue.js", "Go", "Kubernetes", "gRPC", "S3"],
       features: ["End-to-end Encryption", "Real-time Sync", "Team Collaboration", "API Access"],
       metrics: { storage: "10PB+", enterprises: "200+", uptime: "99.99%" },
@@ -94,50 +89,34 @@ const PortfolioSection = () => {
       title: "SmartCity IoT Platform",
       category: "web",
       description: "IoT management platform for smart city infrastructure",
-      image: "🏙️",
-      color: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
       technologies: ["Angular", "Python", "MQTT", "TimescaleDB", "Docker"],
       features: ["Real-time Monitoring", "Predictive Maintenance", "Energy Optimization", "Citizen App"],
-      metrics: { devices: "100K+", cities: "15", efficiency: "+35%" }
+      metrics: { devices: "100K+", cities: "15", efficiency: "+35%" },
+      link: "/projects/smartcity"
     },
     {
       id: 6,
       title: "AI Content Creator",
       category: "ai",
       description: "AI-powered content generation platform for marketing teams",
-      image: "🧠",
-      color: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
       technologies: ["Python", "GPT-4", "FastAPI", "React", "Elasticsearch"],
       features: ["Multi-language", "Brand Voice AI", "SEO Optimization", "Plagiarism Check"],
-      metrics: { content: "1M+", languages: "25+", accuracy: "95%" }
+      metrics: { content: "1M+", languages: "25+", accuracy: "95%" },
+      link: "/projects/ai-content"
     },
     {
       id: 7,
       title: "CryptoWallet Pro",
       category: "mobile",
       description: "Secure cryptocurrency wallet with DeFi integration",
-      image: "🔐",
-      color: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
       technologies: ["Flutter", "Web3.js", "Solidity", "Node.js", "PostgreSQL"],
       features: ["Multi-chain", "DeFi Integration", "Hardware Wallet", "Staking"],
-      metrics: { assets: "$100M+", chains: "15+", users: "25K+" }
+      metrics: { assets: "$100M+", chains: "15+", users: "25K+" },
+      link: "/projects/cryptowallet"
     },
-    {
-      id: 8,
-      title: "EduLearn Platform",
-      category: "saas",
-      description: "AI-enhanced learning management system for universities",
-      image: "🎓",
-      color: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
-      technologies: ["Django", "React", "WebRTC", "TensorFlow", "Elasticsearch"],
-      features: ["Live Classes", "AI Tutoring", "Proctored Exams", "Analytics"],
-      metrics: { students: "500K+", courses: "10K+", universities: "50+" }
-    }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(p => p.category === activeFilter);
+  const filteredProjects = projects.filter(p => p.category === activeFilter);
 
   return (
     <section className="portfolio-section" style={{
@@ -245,9 +224,6 @@ const PortfolioSection = () => {
               key={cat.id}
               onClick={() => setActiveFilter(cat.id)}
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
                 padding: isMobile ? '10px 20px' : '12px 30px',
                 background: activeFilter === cat.id
                   ? 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)'
@@ -277,8 +253,7 @@ const PortfolioSection = () => {
                 }
               }}
             >
-              <span style={{ fontSize: '20px' }}>{cat.icon}</span>
-              <span>{cat.name}</span>
+              {cat.name}
             </button>
           ))}
         </div>
@@ -410,7 +385,7 @@ const PortfolioSection = () => {
                   )}
                 </div>
 
-                {/* View Project Button */}
+                {/* View Case Study Button */}
                 <button style={{
                   width: '100%',
                   padding: '12px',
@@ -440,6 +415,43 @@ const PortfolioSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Read More Button - Single button at bottom */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '60px'
+        }}>
+          <button
+            onClick={() => window.location.href = '/portfolio'}
+            style={{
+              background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
+              border: 'none',
+              borderRadius: '12px',
+              padding: '18px 40px',
+              color: '#ffffff',
+              fontSize: '18px',
+              fontWeight: '600',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 5px 20px rgba(139, 92, 246, 0.4)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.6)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 5px 20px rgba(139, 92, 246, 0.4)';
+            }}
+          >
+            View All Projects
+            <span>→</span>
+          </button>
         </div>
       </div>
 

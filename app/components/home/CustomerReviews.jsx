@@ -26,10 +26,10 @@ const CustomerReviews = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -144,7 +144,7 @@ const CustomerReviews = () => {
           left: '-250px',
           filter: 'blur(100px)'
         }}></div>
-        
+
         <div style={{
           position: 'absolute',
           width: '400px',
@@ -171,26 +171,11 @@ const CustomerReviews = () => {
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease'
         }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '10px',
-            background: 'rgba(139, 92, 246, 0.1)',
-            border: '1px solid rgba(139, 92, 246, 0.3)',
-            padding: '10px 20px',
-            borderRadius: '30px',
-            marginBottom: '30px'
-          }}>
-            <span style={{
-              width: '8px',
-              height: '8px',
-              background: '#8b5cf6',
-              borderRadius: '50%',
-              animation: 'pulse 2s infinite'
-            }}></span>
-            <span style={{ color: '#ffffff' }}>Client Success Stories</span>
+          <div className="what-we-do-badge text-white">
+            <span className="purple-dot"></span>
+            Client Success Stories
           </div>
-          
+
           <h2 style={{
             fontSize: isMobile ? 'clamp(28px, 6vw, 36px)' : 'clamp(36px, 5vw, 56px)',
             fontWeight: '700',
@@ -202,7 +187,7 @@ const CustomerReviews = () => {
           }}>
             Trusted by Leading Companies Worldwide
           </h2>
-          
+
           <p style={{
             fontSize: isMobile ? '16px' : '18px',
             color: '#9ca3af',
@@ -326,7 +311,7 @@ const CustomerReviews = () => {
                     }}>
                       {review.image}
                     </div>
-                    
+
                     <h4 style={{
                       fontSize: '20px',
                       fontWeight: '600',
@@ -336,7 +321,7 @@ const CustomerReviews = () => {
                     }}>
                       {review.name}
                     </h4>
-                    
+
                     <p style={{
                       fontSize: '14px',
                       color: '#8b5cf6',
@@ -345,7 +330,7 @@ const CustomerReviews = () => {
                     }}>
                       {review.position}
                     </p>
-                    
+
                     <p style={{
                       fontSize: '14px',
                       color: '#9ca3af',
@@ -364,7 +349,7 @@ const CustomerReviews = () => {
                       ))}
                     </div>
 
-    
+
                     <p style={{
                       fontSize: isMobile ? '16px' : '18px',
                       lineHeight: '1.8',
@@ -375,7 +360,7 @@ const CustomerReviews = () => {
                       "{review.review}"
                     </p>
 
-   
+
                     <div style={{
                       display: 'flex',
                       alignItems: 'center',
@@ -397,7 +382,7 @@ const CustomerReviews = () => {
                       </span>
                     </div>
 
-            
+
                     <div style={{
                       display: 'flex',
                       gap: '10px',
@@ -440,7 +425,7 @@ const CustomerReviews = () => {
                   width: activeIndex === index ? '30px' : '10px',
                   height: '10px',
                   borderRadius: '5px',
-                  background: activeIndex === index 
+                  background: activeIndex === index
                     ? 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)'
                     : 'rgba(255, 255, 255, 0.2)',
                   border: 'none',
@@ -466,7 +451,7 @@ const CustomerReviews = () => {
           }}>
             Trusted by industry leaders
           </p>
-          
+
           <div style={{
             display: 'flex',
             justifyContent: 'center',
