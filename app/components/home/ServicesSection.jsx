@@ -27,10 +27,10 @@ const ServicesSection = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -38,48 +38,48 @@ const ServicesSection = () => {
     development: {
       title: "Development",
       services: [
-        { 
-          name: "Web Development", 
+        {
+          name: "Web Development",
           id: "web-dev",
           details: {
             technologies: ["Sitecore Development", "Laravel Development", "CMS Development", "PHP Development", "Python Development", "Website Maintenance", "Enterprise Development"],
             description: "Build powerful, scalable web applications with cutting-edge technologies."
           }
         },
-        { 
-          name: "Mobile App Development", 
+        {
+          name: "Mobile App Development",
           id: "mobile-dev",
           details: {
             technologies: ["iOS Development", "Android Development", "React Native", "Flutter", "Cross-Platform Apps"],
             description: "Create seamless mobile experiences for iOS and Android platforms."
           }
         },
-        { 
-          name: "E-commerce Websites", 
+        {
+          name: "E-commerce Websites",
           id: "ecommerce",
           details: {
             technologies: ["Shopify", "WooCommerce", "Magento", "Custom E-commerce Solutions"],
             description: "Launch your online store with secure payment gateways and inventory management."
           }
         },
-        { 
-          name: "UI/UX Design", 
+        {
+          name: "UI/UX Design",
           id: "uiux",
           details: {
             technologies: ["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"],
             description: "Design intuitive interfaces that delight users and drive engagement."
           }
         },
-        { 
-          name: "ERP Software", 
+        {
+          name: "ERP Software",
           id: "erp",
           details: {
             technologies: ["SAP", "Oracle", "Microsoft Dynamics", "Custom ERP Solutions"],
             description: "Streamline your business operations with integrated enterprise solutions."
           }
         },
-        { 
-          name: "IT Resource Outsourcing", 
+        {
+          name: "IT Resource Outsourcing",
           id: "outsourcing",
           details: {
             technologies: ["Dedicated Teams", "Staff Augmentation", "Project-Based Outsourcing"],
@@ -91,32 +91,32 @@ const ServicesSection = () => {
     marketing: {
       title: "Digital Marketing",
       services: [
-        { 
-          name: "SEO Optimization", 
+        {
+          name: "SEO Optimization",
           id: "seo",
           details: {
             technologies: ["On-Page SEO", "Off-Page SEO", "Technical SEO", "Local SEO", "E-commerce SEO"],
             description: "Boost your online visibility and drive organic traffic with proven SEO strategies."
           }
         },
-        { 
-          name: "Social Media Marketing", 
+        {
+          name: "Social Media Marketing",
           id: "social",
           details: {
             technologies: ["Facebook Marketing", "Instagram Marketing", "LinkedIn Marketing", "Twitter Marketing", "TikTok Marketing"],
             description: "Engage your audience and build brand loyalty across social platforms."
           }
         },
-        { 
-          name: "Content Marketing", 
+        {
+          name: "Content Marketing",
           id: "content",
           details: {
             technologies: ["Blog Writing", "Video Content", "Infographics", "Email Newsletters", "Case Studies"],
             description: "Create compelling content that attracts, engages, and converts your audience."
           }
         },
-        { 
-          name: "PPC Advertising", 
+        {
+          name: "PPC Advertising",
           id: "ppc",
           details: {
             technologies: ["Google Ads", "Facebook Ads", "LinkedIn Ads", "Display Advertising", "Retargeting"],
@@ -128,32 +128,32 @@ const ServicesSection = () => {
     emerging: {
       title: "Emerging Tech",
       services: [
-        { 
-          name: "Artificial Intelligence", 
+        {
+          name: "Artificial Intelligence",
           id: "ai",
           details: {
             technologies: ["Machine Learning", "Natural Language Processing", "Computer Vision", "Predictive Analytics"],
             description: "Harness the power of AI to automate processes and gain intelligent insights."
           }
         },
-        { 
-          name: "Blockchain Development", 
+        {
+          name: "Blockchain Development",
           id: "blockchain",
           details: {
             technologies: ["Smart Contracts", "DeFi Solutions", "NFT Platforms", "Cryptocurrency Development"],
             description: "Build secure, decentralized applications with blockchain technology."
           }
         },
-        { 
-          name: "IoT Solutions", 
+        {
+          name: "IoT Solutions",
           id: "iot",
           details: {
             technologies: ["Smart Home", "Industrial IoT", "Wearables", "Connected Vehicles", "IoT Security"],
             description: "Connect and control devices intelligently with Internet of Things solutions."
           }
         },
-        { 
-          name: "AR/VR Development", 
+        {
+          name: "AR/VR Development",
           id: "arvr",
           details: {
             technologies: ["Augmented Reality", "Virtual Reality", "Mixed Reality", "3D Modeling", "Interactive Experiences"],
@@ -165,32 +165,32 @@ const ServicesSection = () => {
     creative: {
       title: "Advertising & Creative",
       services: [
-        { 
-          name: "Brand Identity", 
+        {
+          name: "Brand Identity",
           id: "brand",
           details: {
             technologies: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Strategy", "Rebranding"],
             description: "Establish a strong, memorable brand identity that resonates with your audience."
           }
         },
-        { 
-          name: "Video Production", 
+        {
+          name: "Video Production",
           id: "video",
           details: {
             technologies: ["Corporate Videos", "Product Demos", "Animations", "Social Media Videos", "Video Editing"],
             description: "Tell your story through compelling video content that captivates viewers."
           }
         },
-        { 
-          name: "Motion Graphics", 
+        {
+          name: "Motion Graphics",
           id: "motion",
           details: {
             technologies: ["2D Animation", "3D Animation", "Explainer Videos", "Title Sequences", "Visual Effects"],
             description: "Bring your ideas to life with dynamic motion graphics and animations."
           }
         },
-        { 
-          name: "Creative Campaigns", 
+        {
+          name: "Creative Campaigns",
           id: "campaigns",
           details: {
             technologies: ["Campaign Strategy", "Creative Concepts", "Multi-channel Campaigns", "Performance Tracking"],
@@ -261,31 +261,16 @@ const ServicesSection = () => {
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease'
         }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '10px',
-            background: 'rgba(139, 92, 246, 0.1)',
-            border: '1px solid rgba(139, 92, 246, 0.3)',
-            padding: '10px 20px',
-            borderRadius: '30px',
-            marginBottom: '30px'
-          }}>
-            <span style={{
-              width: '8px',
-              height: '8px',
-              background: '#8b5cf6',
-              borderRadius: '50%',
-              animation: 'pulse 2s infinite'
-            }}></span>
-            <span>Our Services</span>
-          </div>
-          
+           <div className="what-we-do-badge">
+              <span className="purple-dot"></span>
+                  Our Servcies
+             </div>
+
           <h2 style={{
             fontSize: 'clamp(36px, 5vw, 56px)',
             fontWeight: '700',
             marginBottom: '20px',
-            background: 'linear-gradient(135deg, #ffffff 0%, #8b5cf6 50%, #06b6d4 100%)',
+            background: 'linear-gradient(135deg, #ffffff 0%,rgb(24, 230, 116) 50%, rgba(255, 255, 255, 0.32) 100%)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
@@ -325,11 +310,11 @@ const ServicesSection = () => {
                     alignItems: 'center',
                     gap: isMobile ? '10px' : '15px',
                     padding: isMobile ? '15px' : '20px',
-                    background: activeCategory === key 
-                      ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)'
+                    background: activeCategory === key
+                      ? 'linear-gradient(135deg, rgba(92, 246, 151, 0.2) 0%, rgba(6, 212, 51, 0.2) 100%)'
                       : 'rgba(255, 255, 255, 0.02)',
                     border: activeCategory === key
-                      ? '1px solid rgba(139, 92, 246, 0.5)'
+                      ? '1px solid rgba(92, 246, 161, 0.5)'
                       : '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '15px',
                     color: '#ffffff',
@@ -346,8 +331,8 @@ const ServicesSection = () => {
                   }}
                   onMouseEnter={(e) => {
                     if (activeCategory !== key) {
-                      e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+                      e.currentTarget.style.background = 'rgba(92, 246, 156, 0.1)';
+                      e.currentTarget.style.borderColor = 'rgba(92, 246, 182, 0.3)';
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -366,7 +351,7 @@ const ServicesSection = () => {
                       top: 0,
                       bottom: 0,
                       width: '4px',
-                      background: 'linear-gradient(180deg, #8b5cf6 0%, #06b6d4 100%)',
+                      background: 'linear-gradient(180deg,rgb(92, 246, 143) 0%,rgb(6, 212, 109) 100%)',
                       borderRadius: '4px 0 0 4px'
                     }}></div>
                   )}
@@ -379,7 +364,7 @@ const ServicesSection = () => {
           <div style={{
             flex: 1,
             background: 'rgba(255, 255, 255, 0.02)',
-            border: '1px solid rgba(139, 92, 246, 0.2)',
+            border: '1px solid rgba(143, 243, 168, 0.2)',
             borderRadius: '20px',
             padding: isMobile ? '20px' : '40px',
             backdropFilter: 'blur(10px)',
@@ -394,7 +379,7 @@ const ServicesSection = () => {
               right: '-50%',
               width: '100%',
               height: '100%',
-              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(92, 246, 156, 0.1) 0%, transparent 70%)',
               pointerEvents: 'none'
             }}></div>
 
@@ -413,7 +398,7 @@ const ServicesSection = () => {
                   <span style={{ fontSize: isMobile ? '24px' : '32px' }}>{servicesData[activeCategory].icon}</span>
                   {servicesData[activeCategory].title} Services
                 </h3>
-                
+
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -424,7 +409,7 @@ const ServicesSection = () => {
                       key={service.id}
                       style={{
                         background: 'rgba(255, 255, 255, 0.03)',
-                        border: '1px solid rgba(139, 92, 246, 0.2)',
+                        border: '1px solid rgba(92, 246, 151, 0.2)',
                         borderRadius: '15px',
                         padding: '25px',
                         cursor: 'pointer',
@@ -439,13 +424,13 @@ const ServicesSection = () => {
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-5px)';
                         e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
-                        e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.4)';
-                        e.currentTarget.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.2)';
+                        e.currentTarget.style.borderColor = 'rgba(92, 246, 174, 0.4)';
+                        e.currentTarget.style.boxShadow = '0 10px 30px rgba(92, 246, 169, 0.2)';
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.transform = 'translateY(0)';
                         e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
-                        e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.2)';
+                        e.currentTarget.style.borderColor = 'rgba(92, 246, 182, 0.2)';
                         e.currentTarget.style.boxShadow = 'none';
                       }}
                     >
@@ -456,11 +441,11 @@ const ServicesSection = () => {
                       }}>
                         {service.name}
                       </h4>
-                      
+
                       <button
                         onClick={() => setSelectedService(service)}
                         style={{
-                          background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
+                          background: 'linear-gradient(135deg,rgb(6, 185, 75) 0%,rgb(129, 129, 129) 100%)',
                           border: 'none',
                           borderRadius: '25px',
                           padding: '10px 25px',
@@ -473,7 +458,7 @@ const ServicesSection = () => {
                         }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.transform = 'scale(1.05)';
-                          e.currentTarget.style.boxShadow = '0 5px 20px rgba(139, 92, 246, 0.4)';
+                          e.currentTarget.style.boxShadow = '0 5px 20px rgba(92, 246, 169, 0.2)';
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.transform = 'scale(1)';
@@ -598,14 +583,14 @@ const ServicesSection = () => {
                   boxShadow: '0 5px 20px rgba(139, 92, 246, 0.4)',
                   width: isMobile ? '100%' : 'auto'
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.6)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 5px 20px rgba(139, 92, 246, 0.4)';
-                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.6)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 5px 20px rgba(139, 92, 246, 0.4)';
+                  }}
                 >
                   Get Started with {selectedService.name} →
                 </button>
