@@ -195,23 +195,23 @@ const HeroSection = () => {
         </div>
       </div>
       <StickyocialBar />
-      
+
 
       {/* Brands Section 2*/}
       <section>
         <Brandstack />
-       
+
       </section>
       <section>
         <ServicesSection />
       </section>
-      
+
       {/* Web Development Process section 3 */}
       <section>
         <WebDevelopmentProcess />
       </section>
 
-       <section>
+      <section>
         <CustomerReviews />
       </section>
 
@@ -219,26 +219,25 @@ const HeroSection = () => {
         <PortfolioSection />
       </section> */}
 
+      
+      <section>
+        <HireDeveloperSection />
+      </section>
       <section>
         <SuccessSection />
       </section>
 
-      <section>
-        <HireDeveloperSection />
-      </section>
+
 
       <section>
         <FAQSection />
       </section>
 
-      
 
-      
 
-      
 
       <section><Footer /></section>
-      
+
     </div>
   )
 }

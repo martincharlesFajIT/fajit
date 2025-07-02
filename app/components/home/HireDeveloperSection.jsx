@@ -5,7 +5,6 @@ const HireDeveloperSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [activeSkill, setActiveSkill] = useState(0);
-  const [hoveredDev, setHoveredDev] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,95 +51,20 @@ const HireDeveloperSection = () => {
     { name: "AI/ML Engineers", icon: "🤖", color: "#10b981" }
   ];
 
-  const developers = [
-    {
-      id: 1,
-      name: "Alex Thompson",
-      role: "Senior Full-Stack Developer",
-      expertise: ["React", "Node.js", "AWS", "MongoDB"],
-      experience: "8+ years",
-      availability: "Available",
-      rate: "$120/hr",
-      projects: 45,
-      rating: 4.9,
-      avatar: "👨‍💻"
-    },
-    {
-      id: 2,
-      name: "Sarah Chen",
-      role: "Frontend Architect",
-      expertise: ["Vue.js", "TypeScript", "Tailwind", "Next.js"],
-      experience: "6+ years",
-      availability: "Available",
-      rate: "$100/hr",
-      projects: 38,
-      rating: 5.0,
-      avatar: "👩‍💻"
-    },
-    {
-      id: 3,
-      name: "Mike Rodriguez",
-      role: "Mobile Development Lead",
-      expertise: ["React Native", "Flutter", "iOS", "Android"],
-      experience: "7+ years",
-      availability: "Busy",
-      rate: "$110/hr",
-      projects: 52,
-      rating: 4.8,
-      avatar: "🧑‍💻"
-    },
-    {
-      id: 4,
-      name: "Emma Wilson",
-      role: "Backend Engineer",
-      expertise: ["Python", "Django", "PostgreSQL", "Redis"],
-      experience: "5+ years",
-      availability: "Available",
-      rate: "$95/hr",
-      projects: 33,
-      rating: 4.9,
-      avatar: "👩‍💻"
-    },
-    {
-      id: 5,
-      name: "David Kim",
-      role: "DevOps Engineer",
-      expertise: ["Kubernetes", "Docker", "CI/CD", "AWS"],
-      experience: "7+ years",
-      availability: "Available",
-      rate: "$115/hr",
-      projects: 41,
-      rating: 4.8,
-      avatar: "👨‍💻"
-    },
-    {
-      id: 6,
-      name: "Lisa Garcia",
-      role: "AI/ML Engineer",
-      expertise: ["TensorFlow", "Python", "NLP", "Computer Vision"],
-      experience: "6+ years",
-      availability: "Available",
-      rate: "$130/hr",
-      projects: 28,
-      rating: 5.0,
-      avatar: "👩‍💻"
-    }
-  ];
-
-  const process = [
-    { icon: "📝", title: "Share Requirements", desc: "Tell us about your project needs" },
-    { icon: "🔍", title: "Get Matched", desc: "We match you with perfect developers" },
-    { icon: "💬", title: "Interview & Select", desc: "Interview and choose your team" },
-    { icon: "🚀", title: "Start Building", desc: "Begin development immediately" }
+  const techStacks = [
+    "React", "Vue.js", "Angular", "Node.js", "Python", "Java",
+    "MongoDB", "MySQL", "AWS", "Docker", "Kubernetes", "TypeScript"
   ];
 
   return (
     <section className="hire-section" style={{
-      minHeight: '100vh',
+      minHeight: isMobile ? '80vh' : '100vh',
       background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0f1f 25%, #0f0a1a 50%, #0a0a0a 100%)',
       padding: isMobile ? '60px 0' : '100px 0',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      display: 'flex',
+      alignItems: 'center'
     }}>
       {/* Animated Background */}
       <div className="animated-bg">
@@ -202,15 +126,15 @@ const HireDeveloperSection = () => {
         margin: '0 auto',
         padding: isMobile ? '0 20px' : '0 60px',
         position: 'relative',
-        zIndex: 10
+        zIndex: 10,
+        width: '100%'
       }}>
         {/* Hero Section */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
           gap: '60px',
-          alignItems: 'center',
-          marginBottom: '80px'
+          alignItems: 'center'
         }}>
           {/* Left Content */}
           <div className={`hire-content ${isVisible ? 'animate-in' : ''}`} style={{
@@ -355,217 +279,109 @@ const HireDeveloperSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Rotating Skills Visual */}
-          <div className={`skills-visual ${isVisible ? 'animate-in' : ''}`} style={{
+          {/* Right Content - Rotating Orbit with Tech Stacks */}
+          <div className={`orbit-visual ${isVisible ? 'animate-in' : ''}`} style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
             transition: 'all 0.8s ease 0.2s',
             position: 'relative',
-            height: isMobile ? '300px' : '500px'
+            height: isMobile ? '400px' : '500px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
           }}>
-            {/* Central Hub */}
+            {/* Central Logo */}
             <div style={{
               position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '150px',
-              height: '150px',
+              width: '120px',
+              height: '120px',
               borderRadius: '50%',
               background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 20px 60px rgba(139, 92, 246, 0.4)',
-              animation: 'pulse 3s ease-in-out infinite'
+              zIndex: 10
             }}>
-              <span style={{ fontSize: '60px' }}>{skills[activeSkill].icon}</span>
+              <span style={{ 
+                fontSize: '24px', 
+                fontWeight: '700', 
+                color: '#ffffff'
+              }}>
+                TECH
+              </span>
             </div>
 
-            {/* Orbiting Skills */}
-            {skills.map((skill, index) => {
-              const angle = (index * 360) / skills.length;
-              const radius = isMobile ? 120 : 180;
-              const x = Math.cos((angle * Math.PI) / 180) * radius;
-              const y = Math.sin((angle * Math.PI) / 180) * radius;
+            {/* Rotating Orbit Container */}
+            <div style={{
+              position: 'absolute',
+              width: isMobile ? '350px' : '450px',
+              height: isMobile ? '350px' : '450px',
+              animation: 'rotate 30s linear infinite'
+            }}>
+              {/* Orbit Ring */}
+              <div style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '100%',
+                height: '100%',
+                border: '2px dashed rgba(139, 92, 246, 0.2)',
+                borderRadius: '50%'
+              }}></div>
 
-              return (
-                <div
-                  key={index}
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '50%',
-                    background: activeSkill === index 
-                      ? skill.color 
-                      : 'rgba(255, 255, 255, 0.05)',
-                    border: `2px solid ${activeSkill === index ? skill.color : 'rgba(255, 255, 255, 0.1)'}`,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    transition: 'all 0.5s ease',
-                    animation: 'float 6s ease-in-out infinite',
-                    animationDelay: `${index * 0.5}s`
-                  }}
-                  onClick={() => setActiveSkill(index)}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.2)`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1)`;
-                  }}
-                >
-                  <span style={{ fontSize: '30px' }}>{skill.icon}</span>
-                </div>
-              );
-            })}
+              {/* Tech Stack Items */}
+              {techStacks.map((tech, index) => {
+                const angle = (index * 360) / techStacks.length;
+                const radian = (angle * Math.PI) / 180;
+                const radius = isMobile ? 175 : 225;
+                const x = Math.cos(radian) * radius;
+                const y = Math.sin(radian) * radius;
+
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
+                      width: '80px',
+                      height: '40px',
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(139, 92, 246, 0.3)',
+                      borderRadius: '20px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '12px',
+                      fontWeight: '500',
+                      color: '#ffffff',
+                      backdropFilter: 'blur(10px)',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
+                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.6)';
+                      e.currentTarget.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(1.1)`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
+                      e.currentTarget.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(1)`;
+                    }}
+                  >
+                    <span style={{
+                      animation: 'counterRotate 30s linear infinite'
+                    }}>
+                      {tech}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-
-
-        {/* Hiring Process */}
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.02)',
-          border: '1px solid rgba(139, 92, 246, 0.2)',
-          borderRadius: '20px',
-          padding: isMobile ? '40px 20px' : '60px',
-          marginBottom: '80px'
-        }}>
-          <h2 style={{
-            fontSize: isMobile ? '28px' : '36px',
-            fontWeight: '700',
-            textAlign: 'center',
-            marginBottom: '20px',
-            color: '#ffffff'
-          }}>
-            Simple Hiring Process
-          </h2>
-          
-          <p style={{
-            fontSize: '16px',
-            color: '#9ca3af',
-            textAlign: 'center',
-            marginBottom: '50px',
-            maxWidth: '600px',
-            margin: '0 auto 50px'
-          }}>
-            Get started with your perfect developer in just 4 easy steps
-          </p>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)',
-            gap: '30px'
-          }}>
-            {process.map((step, index) => (
-              <div
-                key={index}
-                style={{
-                  textAlign: 'center',
-                  position: 'relative'
-                }}
-              >
-                <div style={{
-                  width: '80px',
-                  height: '80px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)',
-                  border: '2px solid rgba(139, 92, 246, 0.3)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 20px',
-                  fontSize: '30px',
-                  position: 'relative',
-                  zIndex: 2
-                }}>
-                  {step.icon}
-                </div>
-                
-                {!isMobile && index < process.length - 1 && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '40px',
-                    left: '60%',
-                    width: '100%',
-                    height: '2px',
-                    background: 'linear-gradient(90deg, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.1) 100%)',
-                    zIndex: 1
-                  }}></div>
-                )}
-                
-                <h3 style={{
-                  fontSize: '18px',
-                  fontWeight: '600',
-                  color: '#ffffff',
-                  marginBottom: '10px'
-                }}>
-                  {step.title}
-                </h3>
-                <p style={{
-                  fontSize: '14px',
-                  color: '#9ca3af'
-                }}>
-                  {step.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Section */}
-        <div style={{
-          textAlign: 'center',
-          padding: '60px 20px',
-          background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%)',
-          borderRadius: '20px',
-          border: '1px solid rgba(139, 92, 246, 0.2)'
-        }}>
-          <h2 style={{
-            fontSize: isMobile ? '28px' : '36px',
-            fontWeight: '700',
-            marginBottom: '20px',
-            color: '#ffffff'
-          }}>
-            Ready to Build Your Dream Team?
-          </h2>
-          <p style={{
-            fontSize: '18px',
-            color: '#9ca3af',
-            marginBottom: '40px',
-            maxWidth: '600px',
-            margin: '0 auto 40px'
-          }}>
-            Join 500+ companies who've built successful products with our developers
-          </p>
-          <button style={{
-            background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
-            border: 'none',
-            borderRadius: '12px',
-            padding: '18px 40px',
-            color: '#ffffff',
-            fontSize: '18px',
-            fontWeight: '600',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            boxShadow: '0 5px 20px rgba(139, 92, 246, 0.4)'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.6)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 5px 20px rgba(139, 92, 246, 0.4)';
-          }}
-          >
-            Start Hiring Today →
-          </button>
         </div>
       </div>
 
@@ -591,11 +407,29 @@ const HireDeveloperSection = () => {
         @keyframes pulse {
           0%, 100% {
             transform: scale(1);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+            opacity: 1;
           }
           50% {
-            transform: scale(1.05);
-            box-shadow: 0 25px 70px rgba(139, 92, 246, 0.6);
+            transform: scale(1.2);
+            opacity: 0.5;
+          }
+        }
+
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes counterRotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(-360deg);
           }
         }
       `}</style>
