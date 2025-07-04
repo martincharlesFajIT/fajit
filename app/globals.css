@@ -820,7 +820,6 @@
   .global-presence {
     flex-direction: column;
     gap: 8px;
-    /* padding: 16px 20px; */
     text-align: center;
   }
 
@@ -3117,3 +3116,13 @@
     font-size: 14px;
   }
 }
+
+/* .brands-section {
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/19/15/03/buildings-1839726_960_720.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  color: #fff;
+  z-index: 1;
+} */

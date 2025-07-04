@@ -241,25 +241,10 @@ const ServicesSection = () => {
           transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           transition: 'all 0.8s ease'
         }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '10px',
-            background: 'rgba(139, 92, 246, 0.1)',
-            border: '1px solid rgba(139, 92, 246, 0.3)',
-            padding: '10px 20px',
-            borderRadius: '30px',
-            marginBottom: '30px'
-          }}>
-            <span style={{
-              width: '8px',
-              height: '8px',
-              background: '#8b5cf6',
-              borderRadius: '50%',
-              animation: 'pulse 2s infinite'
-            }}></span>
-            <span>Our Services</span>
-          </div>
+           <div className="what-we-do-badge">
+        <span className="purple-dot"></span>
+        Our Services
+      </div>
 
           <h2 style={{
             fontSize: 'clamp(36px, 5vw, 56px)',
