@@ -12,11 +12,11 @@ import CustomerReviews from './components/home/CustomerReviews'
 import PortfolioSection from './components/home/PortfolioSection'
 import HireDeveloperSection from './components/home/HireDeveloperSection'
 import HeroSection from './components/home/HeroSection'
+import WebCTA from './components/home/Webcta'
 
 export const metadata = {
   title: 'FAJ IT Solutions | Web & IT Services',
   description: 'We provide expert web development, branding, SEO, and IT solutions tailored to your business needs.',
-  keywords: ['Web Development', 'FAJ IT Solutions', 'IT Services', 'Branding', 'SEO'],
   openGraph: {
     title: 'FAJ IT Solutions',
     description: 'Your trusted partner for all web and IT services.',
@@ -64,6 +64,8 @@ const Home = () => {
       <section>
         <PortfolioSection />
       </section>
+
+      <WebCTA />
 
       <section>
         <HireDeveloperSection />

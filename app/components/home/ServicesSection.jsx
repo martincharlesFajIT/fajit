@@ -6,6 +6,8 @@ const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [particles, setParticles] = useState([]);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,14 +25,24 @@ const ServicesSection = () => {
     return () => observer.disconnect();
   }, []);
 
+    useEffect(() => {
+      const newParticles = Array.from({ length: 30 }).map(() => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        duration: 20 + Math.random() * 10,
+        opacity: Math.random() * 0.5 + 0.2
+      }));
+      setParticles(newParticles);
+    }, []);
+
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -38,32 +50,32 @@ const ServicesSection = () => {
     development: {
       title: "Development",
       services: [
-        { 
-          name: "Web Development", 
+        {
+          name: "Web Development",
           id: "web-dev",
           details: {
             technologies: ["Sitecore Development", "Laravel Development", "CMS Development", "PHP Development", "Python Development", "Website Maintenance", "Enterprise Development"],
             description: "Build powerful, scalable web applications with cutting-edge technologies."
           }
         },
-        { 
-          name: "Mobile App Development", 
+        {
+          name: "Mobile App Development",
           id: "mobile-dev",
           details: {
             technologies: ["iOS Development", "Android Development", "React Native", "Flutter", "Cross-Platform Apps"],
             description: "Create seamless mobile experiences for iOS and Android platforms."
           }
         },
-        { 
-          name: "E-commerce Websites", 
+        {
+          name: "E-commerce Websites",
           id: "ecommerce",
           details: {
             technologies: ["Shopify", "WooCommerce", "Magento", "Custom E-commerce Solutions"],
             description: "Launch your online store with secure payment gateways and inventory management."
           }
         },
-        { 
-          name: "UI/UX Design", 
+        {
+          name: "UI/UX Design",
           id: "uiux",
           details: {
             technologies: ["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"],
@@ -75,32 +87,32 @@ const ServicesSection = () => {
     marketing: {
       title: "Digital Marketing",
       services: [
-        { 
-          name: "SEO Optimization", 
+        {
+          name: "SEO Optimization",
           id: "seo",
           details: {
             technologies: ["On-Page SEO", "Off-Page SEO", "Technical SEO", "Local SEO", "E-commerce SEO"],
             description: "Boost your online visibility and drive organic traffic with proven SEO strategies."
           }
         },
-        { 
-          name: "Social Media Marketing", 
+        {
+          name: "Social Media Marketing",
           id: "social",
           details: {
             technologies: ["Facebook Marketing", "Instagram Marketing", "LinkedIn Marketing", "Twitter Marketing", "TikTok Marketing"],
             description: "Engage your audience and build brand loyalty across social platforms."
           }
         },
-        { 
-          name: "Content Marketing", 
+        {
+          name: "Content Marketing",
           id: "content",
           details: {
             technologies: ["Blog Writing", "Video Content", "Infographics", "Email Newsletters", "Case Studies"],
             description: "Create compelling content that attracts, engages, and converts your audience."
           }
         },
-        { 
-          name: "PPC Advertising", 
+        {
+          name: "PPC Advertising",
           id: "ppc",
           details: {
             technologies: ["Google Ads", "Facebook Ads", "LinkedIn Ads", "Display Advertising", "Retargeting"],
@@ -112,16 +124,16 @@ const ServicesSection = () => {
     emerging: {
       title: "Emerging Tech",
       services: [
-        { 
-          name: "Artificial Intelligence", 
+        {
+          name: "Artificial Intelligence",
           id: "ai",
           details: {
             technologies: ["Machine Learning", "Natural Language Processing", "Computer Vision", "Predictive Analytics"],
             description: "Harness the power of AI to automate processes and gain intelligent insights."
           }
         },
-        { 
-          name: "Blockchain Development", 
+        {
+          name: "Blockchain Development",
           id: "blockchain",
           details: {
             technologies: ["Smart Contracts", "DeFi Solutions", "NFT Platforms", "Cryptocurrency Development"],
@@ -133,32 +145,32 @@ const ServicesSection = () => {
     creative: {
       title: "Advertising & Creative",
       services: [
-        { 
-          name: "Brand Identity", 
+        {
+          name: "Brand Identity",
           id: "brand",
           details: {
             technologies: ["Logo Design", "Brand Guidelines", "Visual Identity", "Brand Strategy", "Rebranding"],
             description: "Establish a strong, memorable brand identity that resonates with your audience."
           }
         },
-        { 
-          name: "Video Production", 
+        {
+          name: "Video Production",
           id: "video",
           details: {
             technologies: ["Corporate Videos", "Product Demos", "Animations", "Social Media Videos", "Video Editing"],
             description: "Tell your story through compelling video content that captivates viewers."
           }
         },
-        { 
-          name: "Motion Graphics", 
+        {
+          name: "Motion Graphics",
           id: "motion",
           details: {
             technologies: ["2D Animation", "3D Animation", "Explainer Videos", "Title Sequences", "Visual Effects"],
             description: "Bring your ideas to life with dynamic motion graphics and animations."
           }
         },
-        { 
-          name: "Creative Campaigns", 
+        {
+          name: "Creative Campaigns",
           id: "campaigns",
           details: {
             technologies: ["Campaign Strategy", "Creative Concepts", "Multi-channel Campaigns", "Performance Tracking"],
@@ -196,7 +208,7 @@ const ServicesSection = () => {
         }}></div>
 
         {/* Floating Particles */}
-        {[...Array(30)].map((_, i) => (
+        {particles.map((particle, i) => (
           <div
             key={i}
             style={{
@@ -205,12 +217,12 @@ const ServicesSection = () => {
               height: '2px',
               background: '#8b5cf6',
               borderRadius: '50%',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `particleFloat ${20 + Math.random() * 10}s linear infinite`,
-              opacity: Math.random() * 0.5 + 0.2
+              left: particle.left,
+              top: particle.top,
+              animation: `particleFloat ${particle.duration}s linear infinite`,
+              opacity: particle.opacity
             }}
-          ></div>
+          />
         ))}
       </div>
 
@@ -248,7 +260,7 @@ const ServicesSection = () => {
             }}></span>
             <span>Our Services</span>
           </div>
-          
+
           <h2 style={{
             fontSize: 'clamp(36px, 5vw, 56px)',
             fontWeight: '700',
@@ -295,7 +307,7 @@ const ServicesSection = () => {
                     alignItems: 'center',
                     gap: isMobile ? '10px' : '15px',
                     padding: isMobile ? '15px' : '20px',
-                    background: activeCategory === key 
+                    background: activeCategory === key
                       ? 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)'
                       : 'rgba(255, 255, 255, 0.02)',
                     border: activeCategory === key
@@ -383,7 +395,7 @@ const ServicesSection = () => {
                   <span style={{ fontSize: isMobile ? '24px' : '32px' }}>{servicesData[activeCategory].icon}</span>
                   {servicesData[activeCategory].title} Services
                 </h3>
-                
+
                 <div style={{
                   display: 'grid',
                   gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -426,7 +438,7 @@ const ServicesSection = () => {
                       }}>
                         {service.name}
                       </h4>
-                      
+
                       <button
                         onClick={() => setSelectedService(service)}
                         style={{
@@ -568,14 +580,14 @@ const ServicesSection = () => {
                   boxShadow: '0 5px 20px rgba(139, 92, 246, 0.4)',
                   width: isMobile ? '100%' : 'auto'
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.6)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 5px 20px rgba(139, 92, 246, 0.4)';
-                }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 10px 30px rgba(139, 92, 246, 0.6)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = '0 5px 20px rgba(139, 92, 246, 0.4)';
+                  }}
                 >
                   Get Started with {selectedService.name} →
                 </button>
