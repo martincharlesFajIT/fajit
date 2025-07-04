@@ -43,17 +43,12 @@ const HireDeveloperSection = () => {
   }, []);
 
   const skills = [
-    { name: "React Developers", icon: "⚛️", color: "#61dafb" },
-    { name: "Node.js Experts", icon: "🟢", color: "#43853d" },
-    { name: "Full-Stack Engineers", icon: "🚀", color: "#8b5cf6" },
-    { name: "Mobile App Developers", icon: "📱", color: "#06b6d4" },
-    { name: "DevOps Specialists", icon: "⚙️", color: "#ff6b6b" },
-    { name: "AI/ML Engineers", icon: "🤖", color: "#10b981" }
-  ];
-
-  const techStacks = [
-    "React", "Vue.js", "Angular", "Node.js", "Python", "Java",
-    "MongoDB", "MySQL", "AWS", "Docker", "Kubernetes", "TypeScript"
+    { name: "React Developers", color: "#61dafb" },
+    { name: "Node.js Experts", color: "#43853d" },
+    { name: "Full-Stack Engineers", color: "#8b5cf6" },
+    { name: "Mobile App Developers", color: "#06b6d4" },
+    { name: "DevOps Specialists", color: "#ff6b6b" },
+    { name: "AI/ML Engineers", color: "#10b981" }
   ];
 
   return (
@@ -279,8 +274,8 @@ const HireDeveloperSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Rotating Orbit with Tech Stacks */}
-          <div className={`orbit-visual ${isVisible ? 'animate-in' : ''}`} style={{
+          {/* Right Content - Developer Image */}
+          <div className={`developer-image ${isVisible ? 'animate-in' : ''}`} style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? 'translateX(0)' : 'translateX(50px)',
             transition: 'all 0.8s ease 0.2s',
@@ -290,96 +285,34 @@ const HireDeveloperSection = () => {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-            {/* Central Logo */}
             <div style={{
-              position: 'absolute',
-              width: '120px',
-              height: '120px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 20px 60px rgba(139, 92, 246, 0.4)',
-              zIndex: 10
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 60px rgba(139, 92, 246, 0.3)'
             }}>
-              <span style={{ 
-                fontSize: '24px', 
-                fontWeight: '700', 
-                color: '#ffffff'
-              }}>
-                TECH
-              </span>
-            </div>
-
-            {/* Rotating Orbit Container */}
-            <div style={{
-              position: 'absolute',
-              width: isMobile ? '350px' : '450px',
-              height: isMobile ? '350px' : '450px',
-              animation: 'rotate 30s linear infinite'
-            }}>
-              {/* Orbit Ring */}
+              <img 
+                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&h=600&fit=crop"
+                alt="Expert Developer"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'grayscale(20%)'
+                }}
+              />
+              {/* Gradient Overlay */}
               <div style={{
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                width: '100%',
-                height: '100%',
-                border: '2px dashed rgba(139, 92, 246, 0.2)',
-                borderRadius: '50%'
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)',
+                pointerEvents: 'none'
               }}></div>
-
-              {/* Tech Stack Items */}
-              {techStacks.map((tech, index) => {
-                const angle = (index * 360) / techStacks.length;
-                const radian = (angle * Math.PI) / 180;
-                const radius = isMobile ? 175 : 225;
-                const x = Math.cos(radian) * radius;
-                const y = Math.sin(radian) * radius;
-
-                return (
-                  <div
-                    key={index}
-                    style={{
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
-                      width: '80px',
-                      height: '40px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      border: '1px solid rgba(139, 92, 246, 0.3)',
-                      borderRadius: '20px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '12px',
-                      fontWeight: '500',
-                      color: '#ffffff',
-                      backdropFilter: 'blur(10px)',
-                      transition: 'all 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = 'rgba(139, 92, 246, 0.2)';
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.6)';
-                      e.currentTarget.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(1.1)`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                      e.currentTarget.style.borderColor = 'rgba(139, 92, 246, 0.3)';
-                      e.currentTarget.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px) scale(1)`;
-                    }}
-                  >
-                    <span style={{
-                      animation: 'counterRotate 30s linear infinite'
-                    }}>
-                      {tech}
-                    </span>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </div>
@@ -412,24 +345,6 @@ const HireDeveloperSection = () => {
           50% {
             transform: scale(1.2);
             opacity: 0.5;
-          }
-        }
-
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes counterRotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(-360deg);
           }
         }
       `}</style>

@@ -48,7 +48,9 @@ const PortfolioSection = () => {
       title: "FinTech Dashboard Pro",
       category: "web",
       description: "Real-time financial analytics dashboard with AI-powered insights",
-      technologies: ["React", "TypeScript", "D3.js", "Node.js", "MongoDB"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      technologies: ["Next.js", "MongoDB", "Express.js", "Node.js"],
       features: ["Real-time Data", "AI Analytics", "Multi-currency", "Dark Mode"],
       metrics: { users: "50K+", performance: "99.9%", rating: "4.9" },
       link: "/projects/fintech-dashboard"
@@ -58,6 +60,8 @@ const PortfolioSection = () => {
       title: "HealthTrack Mobile",
       category: "mobile",
       description: "Cross-platform health monitoring app with wearable integration",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
+      color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
       technologies: ["React Native", "Firebase", "HealthKit", "TensorFlow Lite"],
       features: ["Wearable Sync", "Health AI", "Telemedicine", "Offline Mode"],
       metrics: { downloads: "100K+", activeUsers: "75K", rating: "4.8" },
@@ -66,9 +70,10 @@ const PortfolioSection = () => {
     {
       id: 3,
       title: "ShopHub Marketplace",
-      image: "/images/fingtap.jpeg",
       category: "ecommerce",
       description: "Multi-vendor e-commerce platform with AR product preview",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+      color: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
       technologies: ["Next.js", "Stripe", "AWS", "PostgreSQL", "Redis"],
       features: ["AR Preview", "Multi-vendor", "AI Recommendations", "Global Shipping"],
       metrics: { gmv: "$5M+", vendors: "500+", products: "50K+" },
@@ -79,7 +84,9 @@ const PortfolioSection = () => {
       title: "CloudSync Storage",
       category: "web",
       description: "Enterprise cloud storage solution with advanced collaboration",
-      technologies: ["Vue.js", "Go", "Kubernetes", "gRPC", "S3"],
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop",
+      color: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+      technologies: ["Vue.js"],
       features: ["End-to-end Encryption", "Real-time Sync", "Team Collaboration", "API Access"],
       metrics: { storage: "10PB+", enterprises: "200+", uptime: "99.99%" },
       link: "/projects/cloudsync"
@@ -89,6 +96,8 @@ const PortfolioSection = () => {
       title: "SmartCity IoT Platform",
       category: "web",
       description: "IoT management platform for smart city infrastructure",
+      image: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?w=600&h=400&fit=crop",
+      color: "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
       technologies: ["Angular", "Python", "MQTT", "TimescaleDB", "Docker"],
       features: ["Real-time Monitoring", "Predictive Maintenance", "Energy Optimization", "Citizen App"],
       metrics: { devices: "100K+", cities: "15", efficiency: "+35%" },
@@ -99,6 +108,8 @@ const PortfolioSection = () => {
       title: "AI Content Creator",
       category: "ai",
       description: "AI-powered content generation platform for marketing teams",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
+      color: "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
       technologies: ["Python", "GPT-4", "FastAPI", "React", "Elasticsearch"],
       features: ["Multi-language", "Brand Voice AI", "SEO Optimization", "Plagiarism Check"],
       metrics: { content: "1M+", languages: "25+", accuracy: "95%" },
@@ -109,6 +120,8 @@ const PortfolioSection = () => {
       title: "CryptoWallet Pro",
       category: "mobile",
       description: "Secure cryptocurrency wallet with DeFi integration",
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=400&fit=crop",
+      color: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
       technologies: ["Flutter", "Web3.js", "Solidity", "Node.js", "PostgreSQL"],
       features: ["Multi-chain", "DeFi Integration", "Hardware Wallet", "Staking"],
       metrics: { assets: "$100M+", chains: "15+", users: "25K+" },
@@ -298,35 +311,35 @@ const PortfolioSection = () => {
               }}
               onClick={() => setSelectedProject(project)}
             >
-              {/* Project Header with Gradient */}
+              {/* Project Header with Image */}
               <div style={{
                 height: '200px',
                 background: project.color,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '80px',
                 position: 'relative',
                 overflow: 'hidden'
               }}>
+                <img 
+                  src={project.image}
+                  alt={project.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    opacity: hoveredProject === project.id ? 1 : 0.8,
+                    transition: 'all 0.3s ease',
+                    transform: hoveredProject === project.id ? 'scale(1.1)' : 'scale(1)'
+                  }}
+                />
                 <div style={{
                   position: 'absolute',
                   top: 0,
                   left: 0,
                   right: 0,
                   bottom: 0,
-                  background: 'rgba(0, 0, 0, 0.2)',
-                  opacity: hoveredProject === project.id ? 0 : 1,
+                  background: 'linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%)',
+                  opacity: hoveredProject === project.id ? 0.8 : 1,
                   transition: 'opacity 0.3s ease'
                 }}></div>
-                <span style={{ 
-                  position: 'relative', 
-                  zIndex: 1,
-                  transform: hoveredProject === project.id ? 'scale(1.2)' : 'scale(1)',
-                  transition: 'transform 0.3s ease'
-                }}>
-                  {project.image}
-                </span>
               </div>
 
               {/* Project Info */}
@@ -521,25 +534,30 @@ const PortfolioSection = () => {
               ✕
             </button>
 
-            {/* Modal Header */}
+            {/* Modal Header with Image */}
             <div style={{
               height: '300px',
               background: selectedProject.color,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '120px',
-              position: 'relative'
+              position: 'relative',
+              overflow: 'hidden'
             }}>
+              <img 
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
               <div style={{
                 position: 'absolute',
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: '100px',
+                height: '150px',
                 background: 'linear-gradient(to top, #0a0a0a, transparent)'
               }}></div>
-              {selectedProject.image}
             </div>
 
             {/* Modal Content */}
